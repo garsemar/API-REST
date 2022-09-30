@@ -3,9 +3,11 @@ package com.garsemar.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Movie(val id: String, val tittle: String)
+data class Movie(val id: String, val tittle: String, val year: String, val genre: String, val director: String)
 
-/*
-Pel·lícula: id, títol, any, gènere i director.
-Comentari: id, id de la pel·lícula, comentari, data de creació.
- */
+@Serializable
+data class Comment(val id: String, val idMovie: String, val text: String, val creationDate: String)
+
+val movieStorage = mutableListOf<Movie>(Movie("1", "Matrix", "1998", "Action", "Martin Garrix"))
+
+val commentStorage = mutableListOf<Comment>(Comment("1", "1", "Besto movi", "2022"), Comment("2", "1", "Best movie", "2021"))

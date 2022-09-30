@@ -2,6 +2,7 @@ package com.garsemar.plugins
 
 import com.garsemar.routes.customerRouting
 import com.garsemar.routes.homeRouting
+import com.garsemar.routes.movieRouting
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -12,5 +13,6 @@ fun Application.configureRouting() {
     routing {
         homeRouting()
         customerRouting()
+        movieRouting()
     }
 }
