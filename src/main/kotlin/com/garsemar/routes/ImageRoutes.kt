@@ -23,16 +23,6 @@ fun Route.imageRouting(){
                 call.respondText("Image not found", status = HttpStatusCode.NotFound)
             }
         }
-        get {
-            call.respondHtml(HttpStatusCode.OK) {
-                head {
-                    title("Item List")
-                }
-                body{
-                    h1 { +"Hello World" }
-                }
-            }
-        }
         post {
             lateinit var id: String
             lateinit var name: String
