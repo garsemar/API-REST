@@ -1,9 +1,8 @@
 package com.garsemar.plugins
 
-import com.garsemar.routes.customerRouting
-import com.garsemar.routes.homeRouting
-import com.garsemar.routes.imageRouting
-import com.garsemar.routes.movieRouting
+import com.garsemar.routes.*
+import com.garsemar.websites.filmRouting
+import com.garsemar.websites.homeRouting
 import io.ktor.server.routing.*
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
@@ -14,6 +13,7 @@ fun Application.configureRouting() {
         customerRouting()
         movieRouting()
         imageRouting()
+        filmRouting()
         static("/static") {
             resources("static")
         }

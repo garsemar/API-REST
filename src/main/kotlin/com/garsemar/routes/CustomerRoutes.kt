@@ -1,7 +1,6 @@
 package com.garsemar.routes
 
-import com.garsemar.models.Customer
-import com.garsemar.models.customerStorage
+import com.garsemar.models.customer.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

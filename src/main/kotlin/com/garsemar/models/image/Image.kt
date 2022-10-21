@@ -1,4 +1,4 @@
-package com.garsemar.models
+package com.garsemar.models.image
 
 import kotlinx.serialization.Serializable
 

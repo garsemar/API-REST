@@ -1,4 +1,4 @@
-package com.garsemar.models
+package com.garsemar.models.customer
 
 import kotlinx.serialization.Serializable
 

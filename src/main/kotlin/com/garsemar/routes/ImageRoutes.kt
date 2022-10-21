@@ -1,14 +1,12 @@
 package com.garsemar.routes
 
-import com.garsemar.models.Guy
+import com.garsemar.models.image.Guy
 import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.application.*
-import io.ktor.server.html.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.html.*
 import java.io.File
 
 fun Route.imageRouting(){

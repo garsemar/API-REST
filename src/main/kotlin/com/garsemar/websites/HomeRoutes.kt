@@ -1,4 +1,4 @@
-package com.garsemar.routes
+package com.garsemar.websites
 
 import io.ktor.http.*
 import io.ktor.server.application.*

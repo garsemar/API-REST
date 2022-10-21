@@ -1,6 +1,8 @@
 package com.garsemar.routes
 
-import com.garsemar.models.*
+import com.garsemar.models.movie.Comment
+import com.garsemar.models.movie.Movie
+import com.garsemar.models.movie.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
