@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+}
+img:first-child{
+    margin: auto
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+a:hover{
+    background-color: lightgrey
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.list{
+    display: flex;
+    justify-content:center;
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid black;
+    padding: 20px 50px 20px 50px;
+}
