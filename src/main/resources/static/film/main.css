@@ -39,3 +39,14 @@ td{
     border: 1px solid black;
     padding: 20px 50px 20px 50px;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: auto;
+}
+
+#button{
+    margin: auto;
+}
