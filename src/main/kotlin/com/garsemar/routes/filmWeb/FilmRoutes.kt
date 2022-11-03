@@ -11,6 +11,8 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import java.io.File
+import kotlin.io.path.Path
+import kotlin.io.path.listDirectoryEntries
 
 lateinit var id: String
 
@@ -42,19 +44,19 @@ fun Route.filmRouting() {
             }
         }
         post("addFilm"){
-            val film = call.receiveParameters()
+            /*val film = call.receiveParameters()
             filmStorage.add(Film(logic.getLastId(),film["tittle"]!!, film["year"]!!, film["genre"]!!, film["director"]!!))
-            call.respondRedirect("/films/new")
+            call.respondRedirect("/films/new")*/
 
             // En teoria esto es lo que hay que hacer
-            /*val id = logic.getLastId()
+            val id = logic.getLastId()
             lateinit var tittle: String
             lateinit var year: String
             lateinit var genre: String
             lateinit var director: String
             lateinit var image: String
-            val datos = call.receiveMultipart()
-            datos.forEachPart { part ->
+            val datos = call.receiveMultipart().readAllParts()
+            datos.forEach { part ->
                 when (part) {
                     is PartData.FormItem -> {
                         when (part.name) {
@@ -75,17 +77,16 @@ fun Route.filmRouting() {
                     is PartData.FileItem -> {
                         image = part.originalFileName as String
                         val fileBytes = part.streamProvider().readBytes()
-                        File("uploads/$image").writeBytes(fileBytes)
+                        File("src/main/kotlin/com/garsemar/routes/filmWeb/img/$image").writeBytes(fileBytes)
                     }
                     else -> {
                         println("Ns klk")
                     }
                 }
             }
-
             val film = Film(id, tittle, year, genre, director, image)
             filmStorage.add(film)
-            call.respondText("Film stored correctly and \"$image is uploaded to 'uploads/$image'\"", status = HttpStatusCode.Created)*/
+            call.respondRedirect("/films/new")
         }
     }
 }
