@@ -11,8 +11,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import java.io.File
-import kotlin.io.path.Path
-import kotlin.io.path.listDirectoryEntries
 
 lateinit var id: String
 
@@ -26,7 +24,7 @@ fun Route.filmRouting() {
         }
         get("new") {
             call.respondHtmlTemplate(LayoutTemplate()) {
-                this.content = "newe"
+                this.content = "new"
             }
         }
         get("{id}"){
@@ -43,12 +41,15 @@ fun Route.filmRouting() {
                 this.content = "aboutus"
             }
         }
-        post("addFilm"){
-            /*val film = call.receiveParameters()
-            filmStorage.add(Film(logic.getLastId(),film["tittle"]!!, film["year"]!!, film["genre"]!!, film["director"]!!))
-            call.respondRedirect("/films/new")*/
+        get("uploads/{imageName}"){
+            val imageName = call.parameters["imageName"] ?: return@get call.respondText(
+                "Missing image name",
+                status = HttpStatusCode.BadRequest
+            )
 
-            // En teoria esto es lo que hay que hacer
+            call.respondFile(File("uploads/$imageName"))
+        }
+        post("addFilm"){
             val id = logic.getLastId()
             lateinit var tittle: String
             lateinit var year: String
@@ -77,7 +78,7 @@ fun Route.filmRouting() {
                     is PartData.FileItem -> {
                         image = part.originalFileName as String
                         val fileBytes = part.streamProvider().readBytes()
-                        File("src/main/kotlin/com/garsemar/routes/filmWeb/img/$image").writeBytes(fileBytes)
+                        File("uploads/$image").writeBytes(fileBytes)
                     }
                     else -> {
                         println("Ns klk")

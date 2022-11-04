@@ -37,7 +37,7 @@ class LayoutTemplate : Template<HTML> {
                 "home" -> {
                     insert(HomeFilmsTemplate(), TemplatePlaceholder())
                 }
-                "newe" -> {
+                "new" -> {
                     insert(NewFilmTemplate(), TemplatePlaceholder())
                 }
                 "film" -> {
